@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Зарина Яхина — Клининг под ключ</title>
+<meta name="description" content="Запуск клининга, обучение, реклама, господдержка — расскажите о своей задаче и получите персональное решение">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#2563eb;--blue2:#1d4ed8;--blue3:#1e40af;--bl:#3b82f6;
+  --blue-light:#eff6ff;--blue-border:#bfdbfe;
+  --white:#fff;--light:#f8fafc;--dark:#0f172a;--mid:#475569;--muted:#94a3b8;--border:#e2e8f0;
+  --r-md:14px;--r-lg:20px;--r-xl:28px;--r-full:999px;
+  --sb:0 8px 32px rgba(37,99,235,.25);
+  --sm:0 2px 12px rgba(15,23,42,.08);
+  --fd:'Unbounded',sans-serif;--fb:'Nunito',sans-serif;
+  --ease:cubic-bezier(.4,0,.2,1);
+}
+html{scroll-behavior:smooth;height:100%}
+body{
+  font-family:var(--fb);
+  background:linear-gradient(135deg,#0f172a 0%,#1e3a8a 50%,#0f172a 100%);
+  min-height:100vh;color:var(--dark);overflow-x:hidden;
+  display:flex;flex-direction:column;
+}
+
+/* Фоновые декоративные элементы */
+.bg-orb{
+  position:fixed;border-radius:50%;pointer-events:none;z-index:0;
+  filter:blur(80px);opacity:.15;
+}
+.bg-orb-1{width:600px;height:600px;background:var(--blue);top:-200px;right:-100px;animation:orbFloat 8s ease-in-out infinite}
+.bg-orb-2{width:400px;height:400px;background:#7c3aed;bottom:-100px;left:-100px;animation:orbFloat 10s ease-in-out infinite reverse}
+@keyframes orbFloat{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,30px)}}
+
+/* NAV */
+nav{
+  position:relative;z-index:10;
+  padding:16px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+  max-width:760px;margin:0 auto;width:100%;
+}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo img{height:40px;width:auto}
+.nav-logo-text{font-family:var(--fd);font-size:.75rem;font-weight:700;color:rgba(255,255,255,.9);line-height:1.3}
+.nav-logo-sub{font-size:10px;color:rgba(255,255,255,.4);font-weight:400}
+.nav-badge{
+  display:flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);
+  border-radius:var(--r-full);padding:6px 12px;
+  font-size:11px;font-weight:600;color:rgba(255,255,255,.6);
+}
+.nav-dot{width:6px;height:6px;border-radius:50%;background:#22c55e;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
+
+/* MAIN */
+main{
+  flex:1;display:flex;flex-direction:column;
+  max-width:760px;margin:0 auto;width:100%;padding:0 16px 32px;
+  position:relative;z-index:1;
+}
+
+/* Hero */
+.hero{text-align:center;padding:32px 0 28px}
+.hero-avatar{
+  width:72px;height:72px;border-radius:50%;
+  border:2px solid rgba(255,255,255,.2);
+  margin:0 auto 16px;overflow:hidden;
+  box-shadow:0 0 0 6px rgba(255,255,255,.06);
+}
+.hero-avatar img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.hero-avatar-ph{
+  width:100%;height:100%;
+  background:linear-gradient(135deg,var(--blue),var(--bl));
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--fd);font-size:1.2rem;font-weight:700;color:#fff;
+}
+.hero h1{
+  font-family:var(--fd);font-size:clamp(1.2rem,3vw,1.7rem);
+  font-weight:800;color:#fff;margin-bottom:8px;line-height:1.2;
+}
+.hero h1 span{color:#93c5fd}
+.hero-desc{font-size:13px;color:rgba(255,255,255,.5);max-width:380px;margin:0 auto}
+
+/* Chat window */
+.chat-window{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:24px;
+  overflow:hidden;
+  backdrop-filter:blur(20px);
+  flex:1;display:flex;flex-direction:column;
+}
+
+.chat-header{
+  padding:14px 20px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  display:flex;align-items:center;gap:10px;
+  background:rgba(255,255,255,.04);
+}
+.chat-avatar{
+  width:36px;height:36px;border-radius:50%;
+  background:linear-gradient(135deg,var(--blue),var(--bl));
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--fd);font-size:.65rem;font-weight:700;color:#fff;
+  flex-shrink:0;border:2px solid rgba(255,255,255,.2);
+}
+.chat-name{font-family:var(--fd);font-size:.75rem;font-weight:700;color:#fff}
+.chat-status{font-size:11px;color:#22c55e;display:flex;align-items:center;gap:4px}
+.chat-status::before{content:'';width:5px;height:5px;border-radius:50%;background:#22c55e}
+
+/* Messages */
+.chat-messages{
+  padding:20px 16px;
+  display:flex;flex-direction:column;gap:12px;
+  overflow-y:auto;flex:1;
+  min-height:320px;max-height:440px;
+  scroll-behavior:smooth;
+}
+.chat-messages::-webkit-scrollbar{width:4px}
+.chat-messages::-webkit-scrollbar-track{background:transparent}
+.chat-messages::-webkit-scrollbar-thumb{background:rgba(255,255,255,.15);border-radius:2px}
+
+/* Сообщение бота */
+.msg{display:flex;gap:8px;align-items:flex-end}
+.msg-bot{justify-content:flex-start}
+.msg-user{justify-content:flex-end}
+.msg-avatar{
+  width:28px;height:28px;border-radius:50%;
+  background:linear-gradient(135deg,var(--blue),var(--bl));
+  display:flex;align-items:center;justify-content:center;
+  font-size:10px;font-weight:700;color:#fff;flex-shrink:0;
+  font-family:var(--fd);
+}
+.msg-bubble{
+  max-width:75%;padding:12px 16px;border-radius:18px;
+  font-size:13px;line-height:1.65;
+  animation:msgIn .3s var(--ease) both;
+}
+@keyframes msgIn{from{opacity:0;transform:translateY(8px) scale(.97)}to{opacity:1;transform:none}}
+.msg-bot .msg-bubble{
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.1);
+  color:rgba(255,255,255,.9);border-bottom-left-radius:4px;
+}
+.msg-user .msg-bubble{
+  background:var(--blue);color:#fff;
+  border-bottom-right-radius:4px;box-shadow:var(--sb);
+}
+
+/* Typing indicator */
+.typing{display:flex;align-items:center;gap:4px;padding:14px 16px}
+.typing span{
+  width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.4);
+  animation:typingDot 1.2s ease-in-out infinite;
+}
+.typing span:nth-child(2){animation-delay:.2s}
+.typing span:nth-child(3){animation-delay:.4s}
+@keyframes typingDot{0%,80%,100%{transform:scale(1);opacity:.4}40%{transform:scale(1.2);opacity:1}}
+
+/* Options (кнопки выбора) */
+.chat-options{
+  padding:12px 16px 16px;
+  display:flex;flex-wrap:wrap;gap:8px;
+  border-top:1px solid rgba(255,255,255,.06);
+}
+.opt-btn{
+  padding:9px 16px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:var(--r-full);
+  font-family:var(--fb);font-size:12px;font-weight:600;
+  color:rgba(255,255,255,.85);cursor:pointer;
+  transition:all .2s;white-space:nowrap;
+}
+.opt-btn:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.25);transform:translateY(-1px)}
+.opt-btn:active{transform:scale(.97)}
+.opt-btn.selected{background:var(--blue);border-color:var(--blue);color:#fff}
+
+/* Input area */
+.chat-input-area{
+  padding:12px 16px;
+  border-top:1px solid rgba(255,255,255,.08);
+  display:flex;gap:8px;align-items:center;
+  background:rgba(255,255,255,.04);
+}
+.chat-input{
+  flex:1;background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:var(--r-full);
+  padding:10px 16px;
+  font-family:var(--fb);font-size:13px;color:#fff;
+  outline:none;transition:border-color .2s;
+}
+.chat-input:focus{border-color:rgba(255,255,255,.25)}
+.chat-input::placeholder{color:rgba(255,255,255,.3)}
+.chat-send{
+  width:38px;height:38px;border-radius:50%;
+  background:var(--blue);border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .2s;flex-shrink:0;box-shadow:var(--sb);
+}
+.chat-send:hover{background:var(--blue2);transform:scale(1.05)}
+.chat-send svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+
+/* Form блок (появляется в конце) */
+.form-block{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:var(--r-xl);padding:24px;
+  margin-top:8px;
+  display:none;
+}
+.form-block.show{display:block;animation:msgIn .4s var(--ease) both}
+.form-block h3{
+  font-family:var(--fd);font-size:.9rem;font-weight:700;
+  color:#fff;margin-bottom:6px;
+}
+.form-block p{font-size:12px;color:rgba(255,255,255,.55);margin-bottom:16px}
+.fi{margin-bottom:12px}
+.fl{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:4px;display:block}
+.finp{
+  width:100%;padding:11px 14px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:var(--r-md);
+  font-family:var(--fb);font-size:13px;color:#fff;
+  outline:none;transition:border-color .2s;
+}
+.finp:focus{border-color:rgba(255,255,255,.3)}
+.finp::placeholder{color:rgba(255,255,255,.25)}
+.submit-btn{
+  width:100%;padding:13px;
+  background:var(--blue);color:#fff;
+  font-family:var(--fb);font-weight:700;font-size:14px;
+  border:none;border-radius:var(--r-full);cursor:pointer;
+  box-shadow:var(--sb);transition:all .25s;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  margin-top:4px;
+}
+.submit-btn:hover{background:var(--blue2);transform:translateY(-1px)}
+.form-note{font-size:11px;color:rgba(255,255,255,.3);text-align:center;margin-top:10px}
+
+/* Footer */
+footer{
+  text-align:center;padding:16px;
+  font-size:11px;color:rgba(255,255,255,.2);
+  position:relative;z-index:1;
+}
+
+@media(max-width:500px){
+  .hero{padding:20px 0 16px}
+  .hero h1{font-size:1.1rem}
+  .chat-messages{min-height:260px;max-height:360px}
+  .msg-bubble{max-width:88%}
+}
+</style>
+</head>
+<body>
+
+<!-- Фоновые шары -->
+<div class="bg-orb bg-orb-1"></div>
+<div class="bg-orb bg-orb-2"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <img src="https://lunaproemss.github.io/Zarina/логотип.png" alt="Логотип" onerror="this.style.display='none'">
+    <div>
+      <div class="nav-logo-text">Зарина Яхина</div>
+      <div class="nav-logo-sub">Клининг под ключ</div>
+    </div>
+  </div>
+  <div class="nav-badge"><div class="nav-dot"></div>Онлайн</div>
+</nav>
+
+<!-- MAIN -->
+<main>
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-avatar">
+      <img src="https://lunaproemss.github.io/Zarina/2.png" alt="Зарина" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="hero-avatar-ph" style="display:none">ЗЯ</div>
+    </div>
+    <h1>Привет! Я помогу найти <span>решение для вашего бизнеса</span></h1>
+    <p class="hero-desc">Расскажите о своей задаче — и я подберу оптимальный вариант</p>
+  </div>
+
+  <!-- Chat -->
+  <div class="chat-window">
+    <div class="chat-header">
+      <div class="chat-avatar">ЗЯ</div>
+      <div>
+        <div class="chat-name">Зарина Яхина</div>
+        <div class="chat-status">Онлайн · отвечает быстро</div>
+      </div>
+    </div>
+
+    <div class="chat-messages" id="messages">
+      <!-- Сообщения добавляются через JS -->
+    </div>
+
+    <div class="chat-options" id="options">
+      <!-- Кнопки выбора -->
+    </div>
+
+    <div class="chat-input-area" id="inputArea" style="display:none">
+      <input class="chat-input" id="chatInput" placeholder="Напишите ваш ответ..." type="text">
+      <button class="chat-send" onclick="sendText()">
+        <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+    </div>
+  </div>
+</main>
+
+<footer>© 2025 Зарина Яхина · Клининг под ключ</footer>
+
+<script>
+// ── Данные сценария чата ──
+const answers = {};
+let currentStep = 0;
+
+const steps = [
+  {
+    id: 'welcome',
+    msg: '👋 Здравствуйте! Я помогу подобрать подходящее решение для вашего бизнеса.\n\nС чего начнём — расскажите, что вас интересует?',
+    type: 'options',
+    options: [
+      { text: '🚀 Хочу открыть клининг с нуля', value: 'launch' },
+      { text: '📚 Обучение технологиям уборки', value: 'training' },
+      { text: '🧼 Химчистка мягкой мебели', value: 'furniture' },
+      { text: '📢 Реклама для моего клининга', value: 'ads' },
+      { text: '🏛️ Социальный контракт (господдержка)', value: 'gov' },
+    ]
+  },
+  {
+    id: 'city',
+    msg: (a) => {
+      const texts = {
+        launch: '🎯 Отличный выбор! Запуск клининга под ключ — это наша основная специализация.\n\nМы помогаем открыть бизнес за 30 дней с доходом от 250 000 ₽. Без роялти, под вашим брендом.\n\nИз какого вы города?',
+        training: '📚 Хорошо! Обучение поможет выстроить профессиональные процессы и повысить качество услуг.\n\nИз какого вы города?',
+        furniture: '🧼 Химчистка мягкой мебели — это высокомаржинальное направление, которое приносит до 50% дохода.\n\nИз какого вы города?',
+        ads: '📢 Понятно! Настроим рекламу на топовых площадках и обеспечим стабильный поток заявок.\n\nИз какого вы города?',
+        gov: '🏛️ Социальный контракт — отличный способ получить до 350 000 ₽ от государства на развитие бизнеса.\n\nИз какого вы города?',
+      };
+      return texts[a.welcome] || 'Из какого вы города?';
+    },
+    type: 'input',
+    placeholder: 'Например: Казань',
+    key: 'city'
+  },
+  {
+    id: 'experience',
+    msg: (a) => `Понял, ${a.city}! Отличный выбор города.\n\nЕсть ли у вас опыт в бизнесе или клининге?`,
+    type: 'options',
+    options: [
+      { text: '🌱 Нет, начинаю с нуля', value: 'zero' },
+      { text: '📋 Был опыт, но неудачный', value: 'bad' },
+      { text: '⭐ Да, есть опыт в бизнесе', value: 'yes' },
+      { text: '🧹 Работаю в клининге', value: 'cleaning' },
+    ]
+  },
+  {
+    id: 'budget',
+    msg: '💰 Хорошо! Последний вопрос — какой у вас примерный бюджет на старт?',
+    type: 'options',
+    options: [
+      { text: 'До 100 000 ₽ (рассрочка)', value: 'low' },
+      { text: '100 000 – 250 000 ₽', value: 'mid' },
+      { text: '250 000 ₽ и выше', value: 'high' },
+    ]
+  },
+  {
+    id: 'result',
+    msg: (a) => {
+      const service = {
+        launch: 'запуску клининга под ключ',
+        training: 'обучению технологиям уборки',
+        furniture: 'обучению химчистке мягкой мебели',
+        ads: 'запуску рекламы для вашего клининга',
+        gov: 'получению социального контракта',
+      }[a.welcome] || 'вашему запросу';
+
+      return `✅ Отлично, я собрала всю информацию!\n\nПо ${service} в ${a.city} — у нас есть готовое решение.\n\nЗарина лично свяжется с вами в течение 24 часов и расскажет детали. Оставьте контакт 👇`;
+    },
+    type: 'form'
+  }
+];
+
+// ── Утилиты ──
+const messagesEl = document.getElementById('messages');
+const optionsEl = document.getElementById('options');
+const inputAreaEl = document.getElementById('inputArea');
+
+function scrollBottom() {
+  setTimeout(() => messagesEl.scrollTop = messagesEl.scrollHeight, 50);
+}
+
+function addMsg(text, isBot = true, delay = 0) {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      // Typing indicator для бота
+      if (isBot) {
+        const typing = document.createElement('div');
+        typing.className = 'msg msg-bot';
+        typing.id = 'typing';
+        typing.innerHTML = `
+          <div class="msg-avatar">ЗЯ</div>
+          <div class="msg-bubble" style="padding:0">
+            <div class="typing"><span></span><span></span><span></span></div>
+          </div>`;
+        messagesEl.appendChild(typing);
+        scrollBottom();
+
+        setTimeout(() => {
+          typing.remove();
+          const lines = text.split('\n').map(l => l ? `<span style="display:block">${l}</span>` : '<span style="display:block;height:6px"></span>`').join('');
+          const msg = document.createElement('div');
+          msg.className = 'msg msg-bot';
+          msg.innerHTML = `<div class="msg-avatar">ЗЯ</div><div class="msg-bubble">${lines}</div>`;
+          messagesEl.appendChild(msg);
+          scrollBottom();
+          resolve();
+        }, 900 + text.length * 8);
+      } else {
+        const msg = document.createElement('div');
+        msg.className = 'msg msg-user';
+        msg.innerHTML = `<div class="msg-bubble">${text}</div>`;
+        messagesEl.appendChild(msg);
+        scrollBottom();
+        resolve();
+      }
+    }, delay);
+  });
+}
+
+function showOptions(opts) {
+  optionsEl.innerHTML = '';
+  optionsEl.style.display = 'flex';
+  inputAreaEl.style.display = 'none';
+  opts.forEach(opt => {
+    const btn = document.createElement('button');
+    btn.className = 'opt-btn';
+    btn.textContent = opt.text;
+    btn.onclick = () => handleOption(opt);
+    optionsEl.appendChild(btn);
+  });
+}
+
+function showInput(placeholder, key) {
+  optionsEl.innerHTML = '';
+  optionsEl.style.display = 'none';
+  inputAreaEl.style.display = 'flex';
+  const input = document.getElementById('chatInput');
+  input.placeholder = placeholder || 'Напишите ответ...';
+  input.dataset.key = key;
+  input.focus();
+}
+
+function showForm() {
+  optionsEl.innerHTML = '';
+  optionsEl.style.display = 'none';
+  inputAreaEl.style.display = 'none';
+
+  const form = document.createElement('div');
+  form.className = 'form-block show';
+  form.innerHTML = `
+    <h3>Оставьте контакт</h3>
+    <p>Зарина свяжется с вами в течение 24 часов</p>
+    <div class="fi"><label class="fl">Ваше имя</label><input class="finp" id="f-name" placeholder="Как к вам обращаться?" type="text"></div>
+    <div class="fi"><label class="fl">Телефон *</label><input class="finp" id="f-phone" placeholder="+7 (___) ___-__-__" type="tel"></div>
+    <button class="submit-btn" onclick="submitForm()">
+      Получить персональное предложение
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+    </button>
+    <p class="form-note">🔒 Данные конфиденциальны · Ответим в течение 24 часов</p>
+  `;
+  messagesEl.appendChild(form);
+  scrollBottom();
+}
+
+async function handleOption(opt) {
+  const step = steps[currentStep];
+  answers[step.id] = opt.value;
+
+  // Показываем выбор пользователя
+  optionsEl.querySelectorAll('.opt-btn').forEach(b => b.disabled = true);
+  await addMsg(opt.text, false);
+  optionsEl.innerHTML = '';
+  optionsEl.style.display = 'none';
+
+  currentStep++;
+  await runStep();
+}
+
+async function sendText() {
+  const input = document.getElementById('chatInput');
+  const val = input.value.trim();
+  if (!val) return;
+  const key = input.dataset.key;
+  answers[key] = val;
+  input.value = '';
+  inputAreaEl.style.display = 'none';
+
+  await addMsg(val, false);
+  currentStep++;
+  await runStep();
+}
+
+async function runStep() {
+  if (currentStep >= steps.length) return;
+  const step = steps[currentStep];
+  const msg = typeof step.msg === 'function' ? step.msg(answers) : step.msg;
+
+  await addMsg(msg);
+
+  if (step.type === 'options') showOptions(step.options);
+  else if (step.type === 'input') showInput(step.placeholder, step.key);
+  else if (step.type === 'form') showForm();
+}
+
+function submitForm() {
+  const name = document.getElementById('f-name').value;
+  const phone = document.getElementById('f-phone').value;
+  if (!phone) { document.getElementById('f-phone').focus(); return; }
+
+  // Скрываем форму
+  document.querySelector('.form-block').style.display = 'none';
+
+  // Финальное сообщение
+  addMsg(`🎉 Спасибо, ${name || 'за обращение'}!\n\nЗарина уже получила вашу заявку и свяжется в течение 24 часов.\n\nЕсли хотите написать прямо сейчас — нажмите кнопку ниже 👇`).then(() => {
+    const tgBtn = document.createElement('div');
+    tgBtn.style.padding = '0 16px 16px';
+    tgBtn.innerHTML = `<a href="https://t.me/zarinacleaning" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:8px;background:#29a8e9;color:#fff;font-family:'Nunito',sans-serif;font-weight:700;font-size:13px;padding:13px 24px;border-radius:999px;text-decoration:none;box-shadow:0 4px 16px rgba(41,168,233,.4)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.17 13.617l-2.95-.924c-.64-.203-.654-.64.136-.954l11.57-4.461c.537-.194 1.006.131.836.97z"/></svg>
+      Написать в Telegram
+    </a>`;
+    messagesEl.appendChild(tgBtn);
+    scrollBottom();
+  });
+
+  // Здесь подключить отправку данных
+  console.log('Заявка:', { ...answers, name, phone });
+}
+
+// Enter для отправки
+document.getElementById('chatInput').addEventListener('keypress', e => {
+  if (e.key === 'Enter') sendText();
+});
+
+// Запуск
+runStep();
+</script>
+</body>
+</html>
